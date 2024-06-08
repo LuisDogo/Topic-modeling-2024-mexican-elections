@@ -28,6 +28,9 @@ def bars(vals):
     vals.sort_values().tail(10).plot(kind = 'barh', color = "grey", figsize = [4, 9], grid = True)
     plt.show()
 
+bars(val_debs_pre[0])
+bars(val_debs_pre[1])
+bars(val_debs_pre[2])
 bars(val_deb_gen_pre)
 
 
