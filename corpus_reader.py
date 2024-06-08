@@ -1,5 +1,7 @@
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
+import numpy as np
+import pandas as pd
 import re
 
 def add_stopwords(structure):
@@ -47,3 +49,11 @@ text_deb_2 = ' '.join(filtered_deb2)
 filtered_deb3 = [word for word in deb_3_tokens if not word in stop_words]
 text_deb_3 = ' '.join(filtered_deb3)
 
+filtered_deb_gen = np.append(np.append(filtered_deb1,filtered_deb2),filtered_deb3)
+text_deb_gen = ' '.join(filtered_deb_gen)
+
+val_deb_1_pre = pd.value_counts(np.array(filtered_deb1))
+val_deb_2_pre = pd.value_counts(np.array(filtered_deb2))
+val_deb_3_pre = pd.value_counts(np.array(filtered_deb3))
+val_debs_pre = []
+val_deb_gen_pre = pd.value_counts(np.array(filtered_deb_gen))

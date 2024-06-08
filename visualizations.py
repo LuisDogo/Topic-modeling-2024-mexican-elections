@@ -2,13 +2,13 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
-from corpus_reader import text_deb_1, text_deb_2, text_deb_3
+from corpus_reader import text_deb_1, text_deb_2, text_deb_3, val_debs_pre, val_deb_gen_pre
  
 #TODO create visualizations per debate, per candidate and in general
 
 text_deb_gen = text_deb_1 + text_deb_2 + text_deb_3
 
-def wordclouds(texts):
+def wordclouds(texts): # pass an array of texts in str form to be converted onto wordclouds
     for text in texts:
         wordcloud = WordCloud(width = 1600, height = 800,
                         background_color ='white',
@@ -24,7 +24,11 @@ def wordclouds(texts):
         
         plt.show()
 
-wordclouds([text_deb_gen])
+def bars(vals):
+    vals.sort_values().tail(10).plot(kind = 'barh', color = "grey", figsize = [4, 9], grid = True)
+    plt.show()
+
+bars(val_deb_gen_pre)
 
 
 
